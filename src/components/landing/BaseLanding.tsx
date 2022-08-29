@@ -1,9 +1,6 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import { FC } from 'react';
 
-const Home: NextPage = () => {
+const BaseLanding: FC = () => {
   return (
     <>
       <div className="flex flex-col justify-center text-center align-middle h-screen bg-slate-900">
@@ -22,4 +19,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default BaseLanding;
