@@ -20,6 +20,20 @@ module.exports = {
         'patt-bubbles': "url('/svg/patterns/bubbles.svg')",
         'patt-plus': "url('/svg/patterns/plus.svg')",
       },
+      colors: {
+        darkgrad: {
+          1: '#434343',
+          2: '#000000',
+        },
+        bluegrad: {
+          1: '#09203f',
+          2: '#537895',
+        },
+        graygrad: {
+          1: '#29323c',
+          2: '#485563',
+        },
+      },
     },
   },
   plugins: [],
