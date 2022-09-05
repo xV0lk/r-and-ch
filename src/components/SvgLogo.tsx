@@ -10,7 +10,7 @@ export const SvgLogo = () => {
       viewBox="0 0 32 32"
       enableBackground="new 0 0 32 32"
       xmlSpace="preserve"
-      className="w-10 inline"
+      className="w-10 py-2 inline"
     >
       <path
         id="rock-on_1_"

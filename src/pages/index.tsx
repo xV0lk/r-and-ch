@@ -5,7 +5,6 @@ import BaseLanding from '../components/landing/BaseLanding';
 const Home: NextPage = () => {
   return (
     <>
-      <Header />
       <BaseLanding />
     </>
   );

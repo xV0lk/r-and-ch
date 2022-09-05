@@ -3,9 +3,9 @@ import { SvgLogo } from '../SvgLogo';
 
 const Header: FC = () => {
   return (
-    <div className="sticky top-0 h-[6vh] bg-yellow-600 flex items-center font-bold">
-      <span className="inline-block align-middle px-8 font-lobs text-2xl">
-        <SvgLogo /> Rock &amp; Chicharrón
+    <div className="translate-x-5 translate-y-5 inline-block rounded-full bg-yellow-600 font-bold">
+      <span className="px-2 font-lobs text-2xl">
+        <SvgLogo />
       </span>
     </div>
   );
