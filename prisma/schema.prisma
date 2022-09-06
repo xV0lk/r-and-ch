@@ -33,6 +33,26 @@ model User {
   password  String
 }
 
+model Request {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  table     Table    @relation(fields: [tableId], references: [id])
+  tableId   Int
+}
+
+model Table {
+  id      Int       @id @default(autoincrement())
+  number  Int       @unique
+  token   Token?
+  request Request[]
+}
+
+model Token {
+  id      Int   @id @default(autoincrement())
+  table   Table @relation(fields: [tableId], references: [id])
+  tableId Int   @unique
+}
+
 enum Role {
   USER
   ADMIN
