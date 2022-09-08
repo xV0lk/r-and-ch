@@ -24,33 +24,80 @@ datasource db {
 
 // SCHEMA DEFINITIONS
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  email     String   @unique
-  name      String?
-  role      Role     @default(USER)
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  email     String    @unique
+  name      String
+  role      Role      @default(USER)
   password  String
+  Request   Request[]
+  table     Table?    @relation(fields: [tableNum], references: [tableNum])
+  tableNum  Int?
 }
 
 model Request {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  table     Table    @relation(fields: [tableId], references: [id])
-  tableId   Int
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  status    ReqStatus @default(pending)
+  type      ReqType
+  table     Table     @relation(fields: [tableNum], references: [tableNum])
+  tableNum  Int
+  songTitle String
+  songId    String
+  user      User?     @relation(fields: [userId], references: [id])
+  userId    Int?
 }
 
 model Table {
-  id      Int       @id @default(autoincrement())
-  number  Int       @unique
-  token   Token?
-  request Request[]
+  tableNum Int       @id
+  token    Token?
+  request  Request[]
+  User     User[]
 }
 
 model Token {
-  id      Int   @id @default(autoincrement())
-  table   Table @relation(fields: [tableId], references: [id])
-  tableId Int   @unique
+  id        Int      @id @default(autoincrement())
+  token     String
+  createdAt DateTime @default(now())
+  sugLeft   Int      @default(2)
+  reqLeft   Int      @default(2)
+  table     Table    @relation(fields: [tableNum], references: [tableNum])
+  tableNum  Int      @unique
+}
+
+model PlaylistItem {
+  id         String   @id
+  title      String
+  thumbnail  String
+  tWidth     Int
+  tHeight    Int
+  playlist   Playlist @relation(fields: [playlistId], references: [id])
+  playlistId String
+  position   Int
+}
+
+model Playlist {
+  id          String         @id
+  title       String
+  description String
+  itemCount   Int
+  thumbnail   String
+  tWidth      Int
+  tHeight     Int
+  items       PlaylistItem[]
+  player      String
+}
+
+enum ReqStatus {
+  pending
+  aprooved
+  denied
+}
+
+enum ReqType {
+  suggestion
+  request
 }
 
 enum Role {
