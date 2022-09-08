@@ -5,8 +5,8 @@ type Props = {
 export const LogoSimple: React.FC<Props> = ({ height }) => {
   const ratio = 1.83022774;
   const width = height * ratio;
-  console.log(width);
-  console.log(height);
+  
+  
   return (
     <svg
       width={width}
