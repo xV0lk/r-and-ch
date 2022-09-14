@@ -37,16 +37,19 @@ model User {
 }
 
 model Request {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  status    ReqStatus @default(pending)
-  type      ReqType
-  table     Table     @relation(fields: [tableNum], references: [tableNum])
-  tableNum  Int
-  songTitle String
-  songId    String
-  user      User?     @relation(fields: [userId], references: [id])
-  userId    Int?
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  status        ReqStatus @default(pending)
+  type          ReqType
+  table         Table     @relation(fields: [tableNum], references: [tableNum])
+  tableNum      Int
+  songId        String
+  songTitle     String
+  songThumbnail String
+  songTWidth    Int
+  songTHeight   Int
+  user          User?     @relation(fields: [userId], references: [id])
+  userId        Int?
 }
 
 model Table {
@@ -60,6 +63,8 @@ model Token {
   id        Int      @id @default(autoincrement())
   token     String
   createdAt DateTime @default(now())
+  closedAt  DateTime
+  isValid   Boolean  @default(true)
   sugLeft   Int      @default(2)
   reqLeft   Int      @default(2)
   table     Table    @relation(fields: [tableNum], references: [tableNum])
@@ -103,4 +108,5 @@ enum ReqType {
 enum Role {
   USER
   ADMIN
+  EMPLOYEE
 }
