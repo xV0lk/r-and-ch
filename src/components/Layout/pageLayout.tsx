@@ -1,5 +1,4 @@
 import Header from './Header';
-import { LeftMenu } from './leftMenu';
 
 type Props = {
   children?: JSX.Element;

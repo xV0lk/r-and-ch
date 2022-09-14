@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import { FC } from 'react';
-import { SvgLogo } from '../SvgLogo';
 import { LogoSimple } from '../../../public/logo-simple';
 
 const Header: FC = () => {

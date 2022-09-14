@@ -1,5 +1,3 @@
-import Header from './Header';
-
 export const LeftMenu: React.FC = () => {
   return (
     <div className="flex flex-col w-1/6 h-[94vh] bg-slate-700">
