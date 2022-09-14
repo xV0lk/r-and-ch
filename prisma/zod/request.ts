@@ -1,7 +1,11 @@
-import * as z from "zod"
-import * as imports from "../null"
-import { ReqStatus, ReqType } from "@prisma/client"
-import { CompleteTable, RelatedTableModel, CompleteUser, RelatedUserModel } from "./index"
+import * as z from 'zod';
+import { ReqStatus, ReqType } from '@prisma/client';
+import {
+  CompleteTable,
+  RelatedTableModel,
+  CompleteUser,
+  RelatedUserModel,
+} from './index';
 
 export const RequestModel = z.object({
   id: z.number().int(),
@@ -15,11 +19,11 @@ export const RequestModel = z.object({
   songTWidth: z.number().int(),
   songTHeight: z.number().int(),
   userId: z.number().int().nullish(),
-})
+});
 
 export interface CompleteRequest extends z.infer<typeof RequestModel> {
-  table: CompleteTable
-  user?: CompleteUser | null
+  table: CompleteTable;
+  user?: CompleteUser | null;
 }
 
 /**
@@ -27,7 +31,9 @@ export interface CompleteRequest extends z.infer<typeof RequestModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const RelatedRequestModel: z.ZodSchema<CompleteRequest> = z.lazy(() => RequestModel.extend({
-  table: RelatedTableModel,
-  user: RelatedUserModel.nullish(),
-}))
+export const RelatedRequestModel: z.ZodSchema<CompleteRequest> = z.lazy(() =>
+  RequestModel.extend({
+    table: RelatedTableModel,
+    user: RelatedUserModel.nullish(),
+  })
+);

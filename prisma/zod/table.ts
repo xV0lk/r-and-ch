@@ -1,15 +1,21 @@
-import * as z from "zod"
-import * as imports from "../null"
-import { CompleteToken, RelatedTokenModel, CompleteRequest, RelatedRequestModel, CompleteUser, RelatedUserModel } from "./index"
+import * as z from 'zod';
+import {
+  CompleteToken,
+  RelatedTokenModel,
+  CompleteRequest,
+  RelatedRequestModel,
+  CompleteUser,
+  RelatedUserModel,
+} from './index';
 
 export const TableModel = z.object({
   tableNum: z.number().int(),
-})
+});
 
 export interface CompleteTable extends z.infer<typeof TableModel> {
-  token?: CompleteToken | null
-  requests: CompleteRequest[]
-  users: CompleteUser[]
+  token?: CompleteToken | null;
+  requests: CompleteRequest[];
+  users: CompleteUser[];
 }
 
 /**
@@ -17,8 +23,10 @@ export interface CompleteTable extends z.infer<typeof TableModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const RelatedTableModel: z.ZodSchema<CompleteTable> = z.lazy(() => TableModel.extend({
-  token: RelatedTokenModel.nullish(),
-  requests: RelatedRequestModel.array(),
-  users: RelatedUserModel.array(),
-}))
+export const RelatedTableModel: z.ZodSchema<CompleteTable> = z.lazy(() =>
+  TableModel.extend({
+    token: RelatedTokenModel.nullish(),
+    requests: RelatedRequestModel.array(),
+    users: RelatedUserModel.array(),
+  })
+);

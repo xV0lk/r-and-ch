@@ -1,6 +1,5 @@
-import * as z from "zod"
-import * as imports from "../null"
-import { CompletePlaylistItem, RelatedPlaylistItemModel } from "./index"
+import * as z from 'zod';
+import { CompletePlaylistItem, RelatedPlaylistItemModel } from './index';
 
 export const PlaylistModel = z.object({
   id: z.string(),
@@ -11,10 +10,10 @@ export const PlaylistModel = z.object({
   tWidth: z.number().int(),
   tHeight: z.number().int(),
   player: z.string(),
-})
+});
 
 export interface CompletePlaylist extends z.infer<typeof PlaylistModel> {
-  items: CompletePlaylistItem[]
+  items: CompletePlaylistItem[];
 }
 
 /**
@@ -22,6 +21,8 @@ export interface CompletePlaylist extends z.infer<typeof PlaylistModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const RelatedPlaylistModel: z.ZodSchema<CompletePlaylist> = z.lazy(() => PlaylistModel.extend({
-  items: RelatedPlaylistItemModel.array(),
-}))
+export const RelatedPlaylistModel: z.ZodSchema<CompletePlaylist> = z.lazy(() =>
+  PlaylistModel.extend({
+    items: RelatedPlaylistItemModel.array(),
+  })
+);
