@@ -1,8 +1,8 @@
-import Header from "./Header";
+import Header from './Header'
 
 type Props = {
-  children?: JSX.Element;
-};
+  children?: JSX.Element
+}
 export const PageLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className="w-screen h-screen bg-gradient-to-t from-slate-900 to-darkgrad-2">
@@ -14,5 +14,5 @@ export const PageLayout: React.FC<Props> = ({ children }) => {
       </div>
       <div className="absolute bottom-0 left-0 w-screen h-32 bg-none border border-slate-800" />
     </div>
-  );
-};
+  )
+}

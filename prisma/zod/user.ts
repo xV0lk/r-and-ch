@@ -1,11 +1,7 @@
-import * as z from 'zod';
-import { Role } from '@prisma/client';
-import {
-  CompleteRequest,
-  RelatedRequestModel,
-  CompleteTable,
-  RelatedTableModel,
-} from './index';
+/* eslint-disable import/no-cycle */
+import * as z from 'zod'
+import { Role } from '@prisma/client'
+import { CompleteRequest, RelatedRequestModel, CompleteTable, RelatedTableModel } from './index'
 
 export const UserModel = z.object({
   id: z.number().int(),
@@ -16,11 +12,11 @@ export const UserModel = z.object({
   role: z.nativeEnum(Role),
   password: z.string(),
   tableNum: z.number().int().nullish(),
-});
+})
 
 export interface CompleteUser extends z.infer<typeof UserModel> {
-  requests: CompleteRequest[];
-  table?: CompleteTable | null;
+  requests: CompleteRequest[]
+  table?: CompleteTable | null
 }
 
 /**
@@ -33,4 +29,4 @@ export const RelatedUserModel: z.ZodSchema<CompleteUser> = z.lazy(() =>
     requests: RelatedRequestModel.array(),
     table: RelatedTableModel.nullish(),
   })
-);
+)

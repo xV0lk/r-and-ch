@@ -1,4 +1,5 @@
-import * as z from 'zod';
+/* eslint-disable import/no-cycle */
+import * as z from 'zod'
 import {
   CompleteToken,
   RelatedTokenModel,
@@ -6,16 +7,16 @@ import {
   RelatedRequestModel,
   CompleteUser,
   RelatedUserModel,
-} from './index';
+} from './index'
 
 export const TableModel = z.object({
   tableNum: z.number().int(),
-});
+})
 
 export interface CompleteTable extends z.infer<typeof TableModel> {
-  token?: CompleteToken | null;
-  requests: CompleteRequest[];
-  users: CompleteUser[];
+  token?: CompleteToken | null
+  requests: CompleteRequest[]
+  users: CompleteUser[]
 }
 
 /**
@@ -29,4 +30,4 @@ export const RelatedTableModel: z.ZodSchema<CompleteTable> = z.lazy(() =>
     requests: RelatedRequestModel.array(),
     users: RelatedUserModel.array(),
   })
-);
+)

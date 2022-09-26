@@ -1,5 +1,6 @@
-import * as z from 'zod';
-import { CompletePlaylist, RelatedPlaylistModel } from './index';
+/* eslint-disable import/no-cycle */
+import * as z from 'zod'
+import { CompletePlaylist, RelatedPlaylistModel } from './index'
 
 export const PlaylistItemModel = z.object({
   id: z.string(),
@@ -9,11 +10,10 @@ export const PlaylistItemModel = z.object({
   tHeight: z.number().int(),
   playlistId: z.string(),
   position: z.number().int(),
-});
+})
 
-export interface CompletePlaylistItem
-  extends z.infer<typeof PlaylistItemModel> {
-  playlist: CompletePlaylist;
+export interface CompletePlaylistItem extends z.infer<typeof PlaylistItemModel> {
+  playlist: CompletePlaylist
 }
 
 /**
@@ -21,9 +21,8 @@ export interface CompletePlaylistItem
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const RelatedPlaylistItemModel: z.ZodSchema<CompletePlaylistItem> =
-  z.lazy(() =>
-    PlaylistItemModel.extend({
-      playlist: RelatedPlaylistModel,
-    })
-  );
+export const RelatedPlaylistItemModel: z.ZodSchema<CompletePlaylistItem> = z.lazy(() =>
+  PlaylistItemModel.extend({
+    playlist: RelatedPlaylistModel,
+  })
+)

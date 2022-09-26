@@ -36,5 +36,5 @@ export const SvgLogo = () => {
       />
       <rect id="_Transparent_Rectangle" fill="none" width="32" height="32" />
     </svg>
-  );
-};
+  )
+}

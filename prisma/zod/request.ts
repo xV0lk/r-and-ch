@@ -1,11 +1,7 @@
-import * as z from 'zod';
-import { ReqStatus, ReqType } from '@prisma/client';
-import {
-  CompleteTable,
-  RelatedTableModel,
-  CompleteUser,
-  RelatedUserModel,
-} from './index';
+/* eslint-disable import/no-cycle */
+import * as z from 'zod'
+import { ReqStatus, ReqType } from '@prisma/client'
+import { CompleteTable, RelatedTableModel, CompleteUser, RelatedUserModel } from './index'
 
 export const RequestModel = z.object({
   id: z.number().int(),
@@ -19,11 +15,11 @@ export const RequestModel = z.object({
   songTWidth: z.number().int(),
   songTHeight: z.number().int(),
   userId: z.number().int().nullish(),
-});
+})
 
 export interface CompleteRequest extends z.infer<typeof RequestModel> {
-  table: CompleteTable;
-  user?: CompleteUser | null;
+  table: CompleteTable
+  user?: CompleteUser | null
 }
 
 /**
@@ -36,4 +32,4 @@ export const RelatedRequestModel: z.ZodSchema<CompleteRequest> = z.lazy(() =>
     table: RelatedTableModel,
     user: RelatedUserModel.nullish(),
   })
-);
+)

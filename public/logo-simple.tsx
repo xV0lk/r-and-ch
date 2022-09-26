@@ -1,12 +1,11 @@
 type Props = {
-  height: number;
-};
+  height: number
+}
 
 export const LogoSimple: React.FC<Props> = ({ height }) => {
-  const ratio = 1.83022774;
-  const width = height * ratio;
-  
-  
+  const ratio = 1.83022774
+  const width = height * ratio
+
   return (
     <svg
       width={width}
@@ -133,5 +132,5 @@ export const LogoSimple: React.FC<Props> = ({ height }) => {
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
