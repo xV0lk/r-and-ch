@@ -1,0 +1,27 @@
+
+# File extension
+*.css
+*.scss
+*.svg
+*.yml
+.*
+
+# Folders
+**/node_modules
+node_modules
+/node_modules/*
+dist
+build
+dist/*
+build/*
+coverage/*
+
+# ts definition files
+*.d.ts
+
+# translation files
+/src/translations/
+src/translations/
+
+# package.json
+package.json
