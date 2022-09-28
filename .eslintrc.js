@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'airbnb', 'airbnb/hooks', 'prettier'],
+  extends: ['next/core-web-vitals', 'airbnb', 'airbnb/hooks', 'airbnb-typescript', 'prettier'],
   plugins: ['react', '@typescript-eslint', 'prettier'],
   env: {
     browser: true,
@@ -13,6 +13,7 @@ module.exports = {
     },
     ecmaVersion: 13,
     sourceType: 'module',
+    project: './tsconfig.json',
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -40,6 +41,21 @@ module.exports = {
       },
     ],
     'prettier/prettier': 'warn',
+    '@typescript-eslint/no-explicit-any': 'error',
+    'no-array-constructor': 'off',
+    '@typescript-eslint/no-array-constructor': 'error',
+    '@typescript-eslint/no-duplicate-enum-values': 'warn',
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 'error',
+    '@typescript-eslint/no-empty-interface': 'error',
+    '@typescript-eslint/no-for-in-array': 'error',
+    '@typescript-eslint/no-inferrable-types': 'error',
+    '@typescript-eslint/no-invalid-void-type': 'error',
+    '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'warn',
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'warn',
+    '@typescript-eslint/no-require-imports': 'error',
+    '@typescript-eslint/prefer-for-of': 'warn',
   },
   overrides: [
     {
