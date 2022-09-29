@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { LogoSimple } from '../../../public/logo-simple';
+import { FC } from 'react'
+import { LogoSimple } from '../../../public/logo-simple'
 
 const Header: FC = () => {
   return (
@@ -13,7 +13,7 @@ const Header: FC = () => {
         <LogoSimple height={65} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

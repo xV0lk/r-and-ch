@@ -1,8 +1,8 @@
-import type { NextPage } from 'next';
-import BaseLanding from '../components/landing/BaseLanding';
+import type { NextPage } from 'next'
+import BaseLanding from '../components/landing/BaseLanding'
 
 const Home: NextPage = () => {
-  return <BaseLanding />;
-};
+  return <BaseLanding />
+}
 
-export default Home;
+export default Home

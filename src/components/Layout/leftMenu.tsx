@@ -10,5 +10,5 @@ export const LeftMenu: React.FC = () => {
         <p>just a test again</p>
       </section>
     </div>
-  );
-};
+  )
+}
