@@ -26,23 +26,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }
 
       // Create a token with JWT for the session
-      const secret = process.env.JWT_SECRET
-      const cookieName = process.env.COOKIE_NAME
-
       const token: string = jwt.sign(
         {
           email: user.email,
           id: user.id,
           time: Date.now(),
         },
-        secret,
+        process.env.JWT_SECRET,
         { expiresIn: '8h' }
       )
 
       // set cookie for jWT token
       res.setHeader(
         'Set-Cookie',
-        cookie.serialize(cookieName, token, {
+        cookie.serialize(process.env.COOKIE_NAME, token, {
           httpOnly: true,
           maxAge: 8 * 60 * 60,
           path: '/',
