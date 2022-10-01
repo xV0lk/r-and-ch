@@ -16,11 +16,29 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'import/prefer-default-export': 'off',
-    'no-param-reassign': 'off',
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -29,17 +47,15 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/prefer-default-export': 'off',
+    'no-param-reassign': 'off',
     'consistent-return': 'off',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
     'react/jsx-filename-extension': 'off',
-    'react/function-component-definition': [
-      'error',
-      {
-        namedComponents: 'arrow-function',
-        unnamedComponents: 'arrow-function',
-      },
-    ],
     'prettier/prettier': 'warn',
     '@typescript-eslint/no-explicit-any': 'error',
     'no-array-constructor': 'off',
