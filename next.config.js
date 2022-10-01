@@ -8,5 +8,13 @@ module.exports = {
   ...nextConfig,
   experimental: {
     forceSwcTransforms: true,
+    swcPlugins: [
+      [
+        'next-superjson-plugin',
+        {
+          excluded: [],
+        },
+      ],
+    ],
   },
 }
