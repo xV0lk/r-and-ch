@@ -6,12 +6,10 @@ declare global {
       PORT?: string
       PWD: string
       YOUTUBE_API_KEY: string
-      CLIENT_ID: string
-      PROJECT_ID: string
-      AUTH_URI: string
-      TOKEN_URI: string
-      AUTH_PROVIDER_X509_CERT_URL: string
-      CLIENT_SECRET: string
+      ADMIN_GOOGLE_ID: string
+      ADMIN_GOOGLE_SECRET: string
+      GOOGLE_ID: string
+      GOOGLE_SECRET: string
       JAVASCRIPT_ORIGINS: string
       JWT_SECRET: string
       COOKIE_NAME: string
